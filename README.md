@@ -1,6 +1,5 @@
 Fluids v.3.1, R. Hoetzlein (c) 2012-213, http://fluids3.com
 
------------
 UPDATE: March 7, 2014
 Fluids v.3.1 is now available on github and on project website.
 This version is essentially identical, but is much easier to build. It has the following new features:
@@ -9,9 +8,11 @@ This version is essentially identical, but is much easier to build. It has the f
 - Upgraded to run on CUDA 5.0 and 5.5
 - Profile timings. Now includes GPU markers for profiling on the GPU using NVIDIA’s free NSight tool.
 - Bug fixes noticed by users
------------
+
 
 Requirements:
+-----------
+
 Fluids v.3 requires a CUDA-capable NVIDIA graphics card /w Compute capability 2.1 or higher. 
 Builds tested on Windows 7 with Visual Studio 2010
 
@@ -71,11 +72,13 @@ InitMin		Start corner of Initial Particle placement
 InitMax		End corner of Initial Particle placement
 
 
-FLUIDS v.3 - SPH Fluid Simulator for CPU and GPU
-Copyright (C) 2012-2013. Rama Hoetzlein, http://fluids3.com
-=======================================================
 
-  Attribute-ZLib license (* See additional part 4)
+
+Attribute-ZLib license (* See additional part 4)
+-----------
+
+ FLUIDS v.3 - SPH Fluid Simulator for CPU and GPU
+ Copyright (C) 2012-2013. Rama Hoetzlein, http://fluids3.com
 
 
   This software is provided 'as-is', without any express or implied
