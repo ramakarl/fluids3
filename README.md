@@ -13,19 +13,17 @@ This version is essentially identical, but is much easier to build. It has the f
 Requirements:
 -----------
 
-Fluids v.3 requires a CUDA-capable NVIDIA graphics card /w Compute capability 2.1 or higher. 
+Fluids v.3.1 requires a CUDA-capable NVIDIA graphics card /w Compute capability 2.1 or higher. 
 Builds tested on Windows 7 with Visual Studio 2010
 
 Start Fluids by running fluids_v3.exe
 See below for License terms.
 See website for software details.
 
-Fluids makes use of the following libraries:
+Fluids 3.1 makes use of the following libraries:
  CUDA - http://www.nvidia.com/object/cuda_home_new.html
  OpenGL - http://www.opengl.org/
- FreeGlut - http://freeglut.sourceforge.net/
  TinyXML - http://www.grinninglizard.com/tinyxml/index.html
- Glee - http://elf-stone.com/glee.php
 
 Keyboard commands:
 ------------------
