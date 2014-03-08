@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fluids_v3", "fluids_v3.vcxproj", "{968E3E0D-22E5-4534-BEF1-E685F4BA81AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{968E3E0D-22E5-4534-BEF1-E685F4BA81AE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{968E3E0D-22E5-4534-BEF1-E685F4BA81AE}.Debug|Win32.Build.0 = Debug|Win32
+		{968E3E0D-22E5-4534-BEF1-E685F4BA81AE}.Debug|x64.ActiveCfg = Debug|x64
+		{968E3E0D-22E5-4534-BEF1-E685F4BA81AE}.Debug|x64.Build.0 = Debug|x64
+		{968E3E0D-22E5-4534-BEF1-E685F4BA81AE}.Release|Win32.ActiveCfg = Release|Win32
+		{968E3E0D-22E5-4534-BEF1-E685F4BA81AE}.Release|Win32.Build.0 = Release|Win32
+		{968E3E0D-22E5-4534-BEF1-E685F4BA81AE}.Release|x64.ActiveCfg = Release|x64
+		{968E3E0D-22E5-4534-BEF1-E685F4BA81AE}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
