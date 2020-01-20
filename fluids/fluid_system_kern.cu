@@ -228,7 +228,7 @@ __device__ float contributePressure ( int i, float3 p, int cell, bufList buf )
 	for ( int cndx = cfirst; cndx < clast; cndx++ ) {
 		dist = p - buf.mpos[ buf.mgrid[cndx] ];
 		dsq = (dist.x*dist.x + dist.y*dist.y + dist.z*dist.z);
-		if ( dsq < r2 && dsq > 0.0) {
+		if ( dsq < r2 ) {
 			c = (r2 - dsq)*d2;
 			sum += c * c * c;				
 		} 
