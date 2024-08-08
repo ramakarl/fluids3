@@ -1,4 +1,9 @@
-Fluids v.3.1, R. Hoetzlein (c) 2012-213, http://fluids3.com
+Fluids v.3.1
+------------
+Rama Hoetzlein (c) 2012-213, http://fluids3.com
+
+Source code based on the technique from:
+2014, Hoetzlein. Fast Fixed-Radius Nearest Neighbors: Interactive Million-Particle Fluids. GPU Technology Conference. Santa Clara, CA. 2014.
 
 UPDATE: March 7, 2014
 Fluids v.3.1 is now available on github and on project website.
