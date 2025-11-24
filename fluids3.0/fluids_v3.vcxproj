@@ -28,19 +28,23 @@
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -186,7 +190,7 @@
     <None Include="fluids\radixsort.cuh" />
     <None Include="fluids\radixsort_kernel.cu" />
     <CustomBuild Include="fluids\fluid_system_host.cu">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CUDA_BIN_PATH)\nvcc.exe" -G -D_ITERATOR_DEBUG_LEVEL=0 -lcuda -lcublas -lcudart -m 32 -arch=sm_13 -ccbin "$(VCInstallDir)\bin" -c -D_DEBUG -DWIN32 -D_CONSOLE -D_MBCS -Xcompiler /EHsc,/W3,/nologo,/Od,/Zi,/RTC1,/MTd -I "$(CUDA_INC_PATH)"%3b -I./  -I../../common/inc -o $(Configuration)\fluid_system_host.obj fluids\fluid_system_host.cu
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\bin\nvcc.exe\nvcc.exe" -G -D_ITERATOR_DEBUG_LEVEL=0 -lcuda -lcublas -lcudart -m 32 -arch=sm_13 -ccbin "$(VCInstallDir)\bin" -c -D_DEBUG -DWIN32 -D_CONSOLE -D_MBCS -Xcompiler /EHsc,/W3,/nologo,/Od,/Zi,/RTC1,/MTd -I "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\include"%3b -I./  -I../../common/inc -o $(Configuration)\fluid_system_host.obj fluids\fluid_system_host.cu
  </Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(CUDA_BIN_PATH)\nvcc.exe"  -g -G -arch=sm_13 -ccbin "$(VCInstallDir)\bin" -c -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler /EHsc,/W3,/nologo,/Od,/Zi,/RTC1,/MTd -I "$(CUDA_INC_PATH)"%3b -I./ -o $(Configuration)\fluid_system_host.obj fluids\fluid_system_host.cu
 </Command>
@@ -194,7 +198,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">fluid_system_host.cuh;radixsort.cu;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\fluid_system_host.obj;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)\fluid_system_host.obj;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CUDA_BIN_PATH)\nvcc.exe" -m 32 -O3 -arch=sm_20 -c -D_MBCS -DWIN32 -Xcompiler /EHsc,/W3,/nologo,/Zi -I "$(CUDA_INC_PATH)"%3b -I./ -o $(Configuration)\fluid_system_host.obj fluids\fluid_system_host.cu
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\bin\nvcc.exe" -m 32 -O3 -arch=sm_20 -c -D_MBCS -DWIN32 -Xcompiler /EHsc,/W3,/nologo,/Zi -I "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\include"%3b -I./ -o $(Configuration)\fluid_system_host.obj fluids\fluid_system_host.cu
 </Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(CUDA_BIN_PATH)\nvcc.exe" -O3 -arch=sm_20 -c -D_MBCS -Xcompiler /EHsc,/W3,/nologo,/Zi -I "$(CUDA_INC_PATH)"%3b -I./ -o $(Configuration)\fluid_system_cu.obj fluids\fluid_system_host.cu
 </Command>

@@ -1,0 +1,73 @@
+
+Fluids 1 
+  First CPU version, 2007
+  Smoothed Particle Hydrodynamics (SPH)
+
+Fluids 2
+  First GPU version, 2011
+  Radix-sort based (using Simon Green, 2010)
+  CPU-GPU transfers per frame (pipeline bottleneck)
+
+Fluids 3.0 
+  Major update, 2012
+  New Insertion-sort based
+  Entirely on GPU
+  Explicit memory allocs
+  Cuda Run-time API (cudaLaunchKernel)
+  Static/mixed host code (fluid_system_host.cu)
+  3rd party Prefix scan
+  Fluid as struct (AofS)
+  Kernels: insertParticles, countingSort, computePressure, computeForce, advanceParticles
+  Introduced insertion-sort and prefix scan, as faster alternatives to radix-sort for particle search
+  GTC 2014 Talk - Fast Fixed-Radius Nearest Neighbors: Interactive Million Particle Fluids
+
+Fluids 3.2
+  Minor update, 2013
+  Application code (abstracted main)
+  GUI added
+  Still using Cuda Run-time API (cudaLaunchKernel)
+  Identical kernels to 3.0
+
+Fluids 3.9
+  Major update, 2021
+  Cuda Driver API (cuLaunchKernel)
+  Large-scale prefix sums, custom code, >4 mil particles
+  Allocation helper, cpu & gpu (AllocateBuffer)
+  Source at top level
+
+Fluids 4.0
+  Rewrite, 2022
+  Fluid struct removed
+  Fluid as buffers (SofA, see fluid.h)
+  Buffer-based kernels
+  Allows for arbitrary per-particle properties
+  New kernels: sampleParticles, computeQuery
+  Write to disk (SavePoints)
+  Equivalent CPU code
+  Run modes: SEARCH, CPU_SLOW, CPU_GRID, VALIDATE, GPU_FULL, PLAYBACK
+
+Fluids 5.0
+  Modernized, 2023
+  Cuda Driver API (cuLaunchKernel)
+  Large-scale prefixSums, custom code, >1 mil particles
+  Full Smart Pointers, cpu & gpu (DataPtr)
+  Buffer-based kernels
+  Abstract Buffer management (DataX)
+  Removed run modes
+  Integrated CPU/GPU switching per func (instead of run modes)
+  Modern folder struct (src, assets)
+  Major code cleanup and reduction
+
+   
+
+
+
+
+
+
+  
+  
+
+
+
+
