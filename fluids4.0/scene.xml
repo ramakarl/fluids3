@@ -1,0 +1,65 @@
+<Fluid>
+	<DT>			0.003		</DT>
+	<SimScale>		0.005		</SimScale>
+	<Viscosity>	0.35		</Viscosity>
+	<RestDensity>	800.0		</RestDensity>
+	<Mass>		0.00020543	</Mass>
+	<Radius>		0.02		</Radius>
+	<IntStiff>		1.5		</IntStiff>
+	<BoundStiff>	10000.0	</BoundStiff>
+	<BoundDamp>	100.0		</BoundDamp>
+	<AccelLimit>	150.0		</AccelLimit>
+	<VelLimit>		5.0		</VelLimit>
+	<PointGravAmt>	0.0		</PointGravAmt>
+	<PointGravPos>	0,0,0		</PointGravPos>
+	<PlaneGravDir>	0,-9.8,0	</PlaneGravDir>
+	<GroundSlope>	0.0		</GroundSlope>
+	<WaveForceMin>	0.0		</WaveForceMin>
+	<WaveForceMax>	0.0		</WaveForceMax>
+</Fluid>
+<Scene id="1">
+	<Name>		Large Ocean Waves </Name>
+	<Num>		524288		</Num>
+	<VolMin>	-200, 0, -200	</VolMin>
+	<VolMax> 	200, 200, 200	</VolMax>
+	<InitMin>	-140, 40, -190	</InitMin>
+	<InitMax> 	190, 190, 190	</InitMax>
+	<WaveForceFreq>	8.0		</WaveForceFreq>
+	<WaveForceMin>	50.0		</WaveForceMin>
+	<GroundSlope>	0.06		</GroundSlope>
+</Scene>
+<Scene id="2">
+	<Name>		Small Wave Pool	</Name>
+	<Num>			65536			</Num>
+	<VolMin>		-100, 0, -50	</VolMin>
+	<VolMax> 		100, 100, 50	</VolMax>
+	<InitMin>		40, 8, -42	</InitMin>
+	<InitMax> 		92, 350, 42		</InitMax>
+	<WaveForceFreq>	8.0		</WaveForceFreq>
+	<GroundSlope>	0.0		</GroundSlope>
+	<PointGravAmt>	10.0		</PointGravAmt>
+</Scene>
+<Scene id="3">
+	<Name>		Dual Wave Pool	</Name>
+	<Num>			65536			</Num>
+	<VolMin>		-100, 0, -20	</VolMin>
+	<VolMax> 		100, 100, 20	</VolMax>
+	<InitMin>		-70, 5, -18	</InitMin>
+	<InitMax> 		70, 90, 18		</InitMax>
+	<WaveForceFreq>	8.0		</WaveForceFreq>
+	<WaveForceMin>	20.0		</WaveForceMin>
+	<WaveForceMax>	20.0		</WaveForceMax>
+	<GroundSlope>	0.0		</GroundSlope>
+</Scene>
+<Scene id="4">
+	<Name>		Compressor 	</Name>
+	<Num>			65536			</Num>
+	<VolMin>		-20, 0, -200	</VolMin>
+	<VolMax> 		20, 200, 200	</VolMax>
+	<InitMin>		0, 20, -190		</InitMin>
+	<InitMax> 		18, 190, 190		</InitMax>
+	<WaveForceFreq>	8.0		</WaveForceFreq>
+	<WaveForceMin>	20.0		</WaveForceMin>
+	<WaveForceMax>	0.0		</WaveForceMax>
+	<GroundSlope>	0.04		</GroundSlope>
+</Scene>
