@@ -1,12 +1,12 @@
 ## Fluids:<br> A fast, GPU-based, smooth particle hydrodynamics (SPH) fluid simulator.
 Rama Hoetzlein (c) 2007-2025<br>
 
-Project Website: <a href="https://ramakarl.com/fluids3">https://ramakarl.com/fluids3</a><br>
+👉 Project Website: <a href="https://ramakarl.com/fluids3">https://ramakarl.com/fluids3</a><br>
 
 Fluids v.3 was the first very fast, interactive >1 million particle, Smooth Particle Hydrodynamic simulator.<br>
 This repository contains the complete history of Fluids.<br>
 
-🚀 ** NEW (2025) **: The latest Fluids 5.0 was updated in 2023, and first published here in Nov 2025.<br>
+🚀🚀 **NEW (2025)**: The latest Fluids 5.0 was updated in 2023, and first published here in Nov 2025.<br>
 The current version is even faster, uses the CUDA Driver API, can handle >4 million particles, uses full smart CPU/GPU pointers, buffer-based structure of arrays, integrated CPU/GPU switching, with cleaner, simplified code.<br>
 
 ## History
