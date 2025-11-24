@@ -9,6 +9,15 @@ This repository contains the complete history of Fluids.<br>
 🚀🚀 **NEW (2025)**: The latest Fluids 5.0 was updated in 2023, and first published here in Nov 2025.<br>
 The current version is even faster, uses the CUDA Driver API, can handle >4 million particles, uses full smart CPU/GPU pointers, buffer-based structure of arrays, integrated CPU/GPU switching, with cleaner, simplified code.<br>
 
+## Latest Performance
+Hardware: **GeForce RTX 4090** <br>
+\# Particles: **4,000,000** <br>
+- Fluids 3.2 ➔ 32 fps
+- Fluids 3.9 ➔ 71 fps
+- Fluids 4.0 ➔ 98 fps
+- Fluids 5.0 ➔ 160 fps <br>
+(same hardware & num particles for all versions)<br>
+
 ## History
 
 **Fluids 5.0**
