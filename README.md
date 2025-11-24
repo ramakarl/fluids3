@@ -1,37 +1,82 @@
-Fluids v.3.1
-------------
-Rama Hoetzlein (c) 2012-2014, https://ramakarl.com/fluids3
+## Fluids:<br> A fast, GPU-based, smooth particle hydrodynamics (SPH) fluid simulator.
+Rama Hoetzlein (c) 2007-2025<br>
 
-Source code based on the technique from:<br>
-2014, Hoetzlein. <a href="https://ramakarl.com/fluids3">Fast Fixed-Radius Nearest Neighbors: Interactive Million-Particle Fluids</a>. GPU Technology Conference. Santa Clara, CA. 2014.
+Project Website: <a href="https://ramakarl.com/fluids3">https://ramakarl.com/fluids3</a><br>
 
-UPDATE: March 7, 2014
-Fluids v.3.1 is now available on github and on project website.
-This version is essentially identical, but is much easier to build. It has the following new features:
-- Easier to build. No more dependency on freetype or glut.
-- Interactive on-screen GUIs
-- Upgraded to run on CUDA 5.0 and 5.5
-- Profile timings. Now includes GPU markers for profiling on the GPU using NVIDIA’s free NSight tool.
-- Bug fixes noticed by users
+Fluids v.3 was the first very fast, interactive >1 million particle, Smooth Particle Hydrodynamic simulator.<br>
+This repository contains the complete history of Fluids.<br>
 
+**> NEW (2025) <**: The latest Fluids 5.0 was updated in 2023, and first published here in Nov 2025.<br>
+The current version is even faster, uses the CUDA Driver API, can handle >4 million particles, uses full smart CPU/GPU pointers, buffer-based structure of arrays, integrated CPU/GPU switching, with cleaner, simplified code.<br>
 
-Requirements:
------------
+## History
+**Fluids 1**
+- First CPU version, 2007
+- Smoothed Particle Hydrodynamics (SPH)
 
-Fluids v.3.1 requires a CUDA-capable NVIDIA graphics card /w Compute capability 2.1 or higher. 
-Builds tested on Windows 7 with Visual Studio 2010
+**Fluids 2**
+- First GPU version, 2011
+- Radix-sort based (using Simon Green, 2010)
+- CPU-GPU transfers per frame (pipeline bottleneck)
 
-Start Fluids by running fluids_v3.exe
-See below for License terms.
-See website for software details.
+**Fluids 3.0**
+- Major update, 2012
+- New Insertion-sort based
+- Entirely on GPU
+- Explicit memory allocs
+- Cuda Run-time API (cudaLaunchKernel)
+- Static/mixed host code (fluid_system_host.cu)
+- 3rd party Prefix scan
+- Fluid as struct (AofS)
+- Kernels: insertParticles, countingSort, computePressure, computeForce, advanceParticles
+- Introduced insertion-sort and prefix scan, as faster alternatives to radix-sort for particle search
+- GTC 2014 Talk: 2014, Hoetzlein. <a href="https://ramakarl.com/fluids3">Fast Fixed-Radius Nearest Neighbors: Interactive Million-Particle Fluids</a>. GPU Technology Conference. Santa Clara, CA. 2014.
+  
+**Fluids 3.2**
+- Minor update, 2013
+- Application code (abstracted main)
+- GUI added
+- Still using Cuda Run-time API (cudaLaunchKernel)
+- Identical kernels to 3.0
 
-Fluids 3.1 makes use of the following libraries:
- CUDA - http://www.nvidia.com/object/cuda_home_new.html
- OpenGL - http://www.opengl.org/
- TinyXML - http://www.grinninglizard.com/tinyxml/index.html
+**Fluids 3.9**
+- Major update, 2021
+- Cuda Driver API (cuLaunchKernel)
+- Large-scale prefix sums, custom code, >4 mil particles
+- Allocation helper, cpu & gpu (AllocateBuffer)
+- Source at top level
 
-Keyboard commands:
-------------------
+**Fluids 4.0**
+- Rewrite, 2022
+- Fluid struct removed
+- Fluid as buffers (SofA, see fluid.h)
+- Buffer-based kernels
+- Allows for arbitrary per-particle properties
+- New kernels: sampleParticles, computeQuery
+- Write to disk (SavePoints)
+- Equivalent CPU & GPU code
+- Run modes: SEARCH, CPU_SLOW, CPU_GRID, VALIDATE, GPU_FULL, PLAYBACK
+
+**Fluids 5.0**
+- Modernized, 2023
+- Cuda Driver API (cuLaunchKernel)
+- Large-scale prefixSums, custom code, >1 mil particles
+- Full Smart Pointers, cpu & gpu (DataPtr)
+- Buffer-based kernels
+- Abstract Buffer management (DataX)
+- Removed run modes
+- Integrated CPU/GPU switching per func (instead of run modes)
+- Modern folder struct (src, assets)
+- Major code cleanup and reduction
+
+## How to Build
+Fluids 1, 2, and 3.0 did not use CMake. VS solutions are provided.<br>
+Fluids >3.2 use Cmake.<br>
+Each Fluids version has its own CMakeLists.txt.<br>
+Run Cmake on the version you want. 
+
+## Keyboard commands (Fluids 3.0):
+```
 H		Turn scene info on/off
 N, M		Change number of particles
 [, ]		Change example scene (loaded from scene.xml)
@@ -44,11 +89,12 @@ A,S,W,D	Move camera target
 2		Draw particle IDs (be sure # < 4096 first)
 ~		Start video capture to disk (tilde key)
 -, +		Change grid density
+```
 
-Scene parameters:
------------------
-* Example scenes are loaded from the scene.xml file
+## Scene parameters (Fluids 3.0)
+* Example scenes are loaded from the scene.xml file<br>
 All parameters are permitted in either Fluid or Scene sections.
+```
 DT			Simulation time step
 SimScale		Simulation scale (see website)
 Viscosity		Fluid viscosity coefficient
@@ -73,14 +119,18 @@ VolMin		Start corner of Domain Volume
 VolMax		End corner of Domain Volume
 InitMin		Start corner of Initial Particle placement
 InitMax		End corner of Initial Particle placement
+```
+
+## Contact
+Feel free to contact me if you have any questions, comments or suggestions:<br>
+**Rama Hoetzlein** <br>
+Website: <a href="https://ramakarl.com">ramakarl.com</a><br>
+Email: ramahoetzlein@gmail.com<br>
+
+## License & Copyright
+MIT License<br>
+FLUIDS - SPH Fluid Simulator for CPU and GPU<br>
+Copyright (c) 2007-2023. Rama Hoetzlein<br>
 
 
-
-
-
------------
-FLUIDS v.3 - SPH Fluid Simulator for CPU and GPU
-Copyright (C) 2012-2013. Rama Hoetzlein
-
-Z-Lib License
   
