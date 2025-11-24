@@ -66,6 +66,8 @@ public:
 	FluidSystem		psys;
 	Camera3D		cam;
 
+  Vector3DF m_fps;
+
 	int			mouse_down;
 	int			mouse_action;
 	bool		bHelp = true;					// Toggles
@@ -171,10 +173,14 @@ void Sample::drawInfo ()
 
 	glColor4f ( 1.0, 1.0, 0.0, 1.0 );	
 	
+  // average fps
+  m_fps.x += frameFPS;
+  m_fps.y ++;
+  m_fps.z = m_fps.x / m_fps.y;
 
 	int y = 0;
 	sprintf ( disp, "# Particles:         %d", psys.NumPoints() ) ; 	drawText ( 20, y+20, disp , 1,1,1,1);
-	sprintf ( disp,	"FPS:                 %d", frameFPS );			drawText ( 20, y+40,  disp, 1,1,1,1 );		
+	sprintf ( disp,	"FPS:                 %4.2f", m_fps.z );			drawText ( 20, y+40,  disp, 1,1,1,1 );		
 	sprintf ( disp,	"Time (ms):           %f", frameTime );			drawText ( 20, y+60,  disp, 1,1,1,1 );			
 	sprintf ( disp,	"Grid Resolution:     %d x %d x %d (%d)", (int) psys.GetGridRes().x, (int) psys.GetGridRes().y, (int) psys.GetGridRes().z, psys.getGridTotal() );		drawText ( 20, y+80,  disp, 1,1,1,1 );
 	int nsrch = pow ( psys.getSearchCnt(), 1/3.0 );
@@ -499,7 +505,7 @@ bool Sample::init ()
 
 	psys.SetParam ( PCLR_MODE, iClrMode );	
 
-	psys.SetParam ( PNUM, 1000000 );
+	psys.SetParam ( PNUM, 4000000 );
 
 	psys_playback = psys.getLastRecording ();
 	
@@ -514,5 +520,5 @@ void Sample::startup ()
 {
 	int w=1270, h=800;
 	
-	appStart ( "Fluids v3.1", "Fluids v3.1", w, h, 4, 0, 1 );	
+	appStart ( "Fluids v3.2", "Fluids v3.2", w, h, 4, 0, 1 );	
 }

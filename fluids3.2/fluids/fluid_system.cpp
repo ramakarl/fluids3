@@ -2332,10 +2332,10 @@ void FluidSystem::SetupExampleParams ( bool bStart )
 	
 		} break;
 	case 1:		// Wave pool						
-		m_Vec [ PVOLMIN ].Set ( -100, 0, -100 );
-		m_Vec [ PVOLMAX ].Set (  100, 100, 100 );
-		m_Vec [ PINITMIN ].Set ( -50, 20, -90 );
-		m_Vec [ PINITMAX ].Set (  90, 90,  90 );
+		m_Vec [ PVOLMIN ].Set ( -150, 0, -150 );
+		m_Vec [ PVOLMAX ].Set (  150, 150, 150 );
+		m_Vec [ PINITMIN ].Set ( -120, 20, -90 );
+		m_Vec [ PINITMAX ].Set (  120, 90,  90 );
 		m_Param [ PFORCE_MIN ] = 10.0;	
 		m_Param [ PGROUND_SLOPE ] = 0.04;
 		break;

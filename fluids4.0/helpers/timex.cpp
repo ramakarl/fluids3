@@ -137,7 +137,7 @@ features for CPU and GPU profiling:
 			strncpy ( (char*) g_perfMsg[g_perfLevel], msg, 256 );			
 			if ( g_perfGPU ) (*g_nvtxPush) ( (char*) g_perfMsg[g_perfLevel] );
 			if ( g_perfCPU && g_perfLevel < g_perfPrintLev ) {			
-				PERF_PRINTF ( "%*s%s\n", g_perfLevel <<1, "", g_perfMsg[g_perfLevel] );
+				if (g_perfConsOut) PERF_PRINTF ( "%*s%s\n", g_perfLevel <<1, "", g_perfMsg[g_perfLevel] );
 				if ( g_perfFile != 0x0 ) fprintf ( g_perfFile, "%*s%s\n", g_perfLevel <<1, "", g_perfMsg[g_perfLevel]  );
 				g_perfStack [ g_perfLevel ] = TimeX::GetSystemNSec ();
 			}
@@ -153,7 +153,7 @@ features for CPU and GPU profiling:
 				sjtime curr = TimeX::GetSystemNSec ();
 				curr -= g_perfStack [ g_perfLevel ];
 				float msec = ((float) curr)/MSEC_SCALAR;
-				PERF_PRINTF ( "%*s%s: %f ms\n", g_perfLevel <<1, "", g_perfMsg[g_perfLevel], msec );		
+        if (g_perfConsOut) PERF_PRINTF ( "%*s%s: %f ms\n", g_perfLevel <<1, "", g_perfMsg[g_perfLevel], msec );
 				//if ( g_perfFile != 0x0 ) fprintf ( g_perfFile, "%*s%s: %f ms\n", g_perfLevel <<1, "", g_perfMsg[g_perfLevel], msec );
 				return msec;
 			}
@@ -259,6 +259,8 @@ features for CPU and GPU profiling:
 			#endif
 			g_perfCons = 0x0;		
 		#endif
+
+    g_perfOn = g_perfCPU || g_perfGPU;
 
 		TimeX start;		// create Time obj to initialize system timer
 	}

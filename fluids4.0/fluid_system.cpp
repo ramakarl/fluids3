@@ -1990,8 +1990,8 @@ void FluidSystem::SetupDefaultParams ()
 
 		
 	m_DT = 0.003f;	
-	m_Params.sim_scale =		0.007;			// unit size
-	m_Params.pvisc =			0.35f;			// pascal-second (Pa.s) = 1 kg m^-1 s^-1  (see wikipedia page on viscosity)
+	m_Params.sim_scale =		0.004;			// unit size
+	m_Params.pvisc =			  0.35f;			// pascal-second (Pa.s) = 1 kg m^-1 s^-1  (see wikipedia page on viscosity)
 	m_Params.prest_dens =		400.0f;			// kg / m^3	
 	m_Params.pspacing =			0.0;			
 	m_Params.pmass =			0.00020543f;	// kg
@@ -2077,10 +2077,10 @@ void FluidSystem::SetupExampleParams ()
 		m_Params.bound_slope = 0.04f; */
 
 		m_Params.bound_min.Set (   0,   0,   0 );		// large beach front
-		m_Params.bound_max.Set ( 600, 300, 400 );
-		m_Params.init_min.Set ( 120,  60,   0 );
-		m_Params.init_max.Set ( 600,  295, 400 );
-		m_Params.bound_wall_force = 150.0f;			
+		m_Params.bound_max.Set ( 600, 400, 600 );
+		m_Params.init_min.Set ( 150,  50,   50 );
+		m_Params.init_max.Set ( 500,  350, 500 );
+		m_Params.bound_wall_force = 100.0f;			
 		m_Params.bound_wall_freq = 4.0f;
 		m_Params.bound_slope = 0.12f; 
 		break;

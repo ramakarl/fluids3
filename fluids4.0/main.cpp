@@ -35,6 +35,7 @@ public:
 	bool			m_pause;
 
 	Camera3D*		m_cam;	
+  Vector3DF m_fps;
 
 	FluidSystem		m_fluid;
 
@@ -138,7 +139,7 @@ bool Sample::init ()
 	setview2D ( w, h );	
 	glViewport ( 0, 0, w, h );
 
-	PERF_INIT ( 64, false, true, false, 0, "" );		// profiling
+	PERF_INIT ( 64, true, false, false, 0, "" );		// profiling
 
 	m_cam = new Camera3D;
 	m_cam->setFov ( 80 );
@@ -154,7 +155,7 @@ bool Sample::init ()
 
 	m_fluid.Initialize ();
 	
-	m_fluid.Start ( 5000000 );			// number of particles here
+	m_fluid.Start ( 4000000 );			// number of particles here
 
 	m_fluid.SetupRender ();
 
@@ -175,7 +176,21 @@ void Sample::display()
 	clearGL();
 
 	// Run fluid simulation!
-	if ( !m_pause ) m_fluid.Run ();
+	if ( !m_pause ) {
+
+    PERF_PUSH("run");
+
+    m_fluid.Run ();
+
+    float e = PERF_POP();
+    
+    m_fps.x += 1000.0 / e;
+    m_fps.y++;
+    m_fps.z = m_fps.x / m_fps.y;
+
+  }
+  dbgprintf ( "%f FPS (%f msec), %d Particles\n", m_fps.z, 1000.0/m_fps.z, m_fluid.NumPoints() );
+
 	
 	// Draw fluid
 	m_fluid.Draw ( m_frame, m_cam, 1.0f );

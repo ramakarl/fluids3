@@ -36,6 +36,7 @@ public:
   float     m_elapsed;
 
 	Camera3D*		m_cam;	
+  Vector3DF   m_fps;
 
 	Particles		m_psys;
 
@@ -107,8 +108,14 @@ void Sample::display()
     m_psys.Run ();
 
     m_elapsed = PERF_POP ();
+
+    m_fps.x += 1000.0 / m_elapsed;
+    m_fps.y++;
+    m_fps.z = m_fps.x / m_fps.y;
   }
 	
+
+
 	// Draw fluid
 	m_psys.Draw ( m_frame, m_cam, 1.0f );
 	
@@ -126,7 +133,7 @@ void Sample::display()
     char msg[512];
     sprintf (msg, "# Particles:  %d\n", m_psys.NumPoints() );
     drawText ( 10, 50, msg, 1, 1, 1, 1);
-    sprintf (msg, "Compute: %4.0f FPS (%4.2f msec)\n", 1000.0f / m_elapsed, m_elapsed);
+    sprintf (msg, "Compute: %4.0f FPS (%4.2f msec)\n", m_fps.z, 1000.0/m_fps.z);
     drawText ( 10, 70, msg, 1, 1, 1, 1 );
   end2D();
 

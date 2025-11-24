@@ -32,6 +32,7 @@ public:
 	int				m_frame;
 	bool			m_pause;
   float     m_elapsed;
+  Vector3DF m_fps;
 
 	Camera3D*		m_cam;	
 
@@ -175,6 +176,12 @@ void Sample::display()
     m_elapsed = PERF_POP ();
   }
 	
+  // average fps
+  m_fps.x += 1000.0/m_elapsed;
+  m_fps.y++;
+  m_fps.z = m_fps.x / m_fps.y;
+
+
 	// Draw fluid
 	m_fluid.Draw ( m_frame, m_cam, 1.0f );
 	
@@ -187,7 +194,7 @@ void Sample::display()
 	end3D();
 
   if (m_frame % 10 == 0) { 
-    printf ( "%f FPS (%f msec), %d particles\n", 1000.0f/m_elapsed, m_elapsed, m_fluid.NumPoints() );
+    printf ( "%f FPS (%f msec), %d particles\n", m_fps.z, 1000.0/m_fps.z, m_fluid.NumPoints() );
   }
 
 	// Use nvGui to draw in 2D/3D

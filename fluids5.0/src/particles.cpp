@@ -360,11 +360,12 @@ void Particles::AddPointsInVolume ( Vector3DF min, Vector3DF max )
 				rnd.Random ( 0, spacing, 0, spacing, 0, spacing );					
 				*m_Points.bufF3(FPOS,p) = pos + rnd;
 				
+        // particle color
 				Vector3DF pnt ( (pos.x-min.x)/dx, 0.f, (pos.z-min.z)/dz );
-
 				Vector3DF clr ( 0.f, pnt.x, (pnt.x + pnt.z)*0.5f  );				
-				clr *= 0.8f; 
+				clr *= 0.7f; 
 				clr += 0.2f;				
+
 				clr.Clamp (0, 1.0);								
 				*m_Points.bufUI(FCLR,p) = COLORA( clr.x, clr.y, clr.z, 1); 
 
